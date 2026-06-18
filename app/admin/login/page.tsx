@@ -3,12 +3,7 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FaLock,
-  FaEye,
-  FaEyeSlash,
-
-} from "react-icons/fa";
+import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 export default function LoginPage() {
@@ -16,17 +11,48 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+ const handleLogin = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
 
-    if (email.trim() !== "" && password.trim() !== "") {
+  try {
+    setLoading(true);
+
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+
+    const response = await fetch(
+      "https://sbstechnologies.in/cloud/mobile/login/check_user_login.php",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.status === true) {
+      localStorage.setItem(
+        "user",
+        JSON.stringify(result.data)
+      );
+
       router.push("/admin/dashboard");
     } else {
-      alert("Please enter email and password");
+      alert(result.message);
     }
-  };
-
+  } catch (error) {
+    console.error(error);
+    alert("Server Error");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-100">
       <form
@@ -36,48 +62,67 @@ export default function LoginPage() {
         <h1 className="text-3xl font-bold text-center mb-6">
           Login
         </h1>
-<div className="mb-4">
+
+        <div className="mb-4">
           <label className="block mb-2 text-sm font-semibold text-gray-700">
             Email Address
           </label>
- <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-    <div className="px-4 py-3 bg-gray-50 border-r border-gray-300 text-purple-600">
-        <MdEmail  />
-    </div>
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full px-4 py-3 outline-none"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-</div>
-</div>
-<div className="mb-4">
+
+          <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+            <div className="px-4 py-3 bg-gray-50 border-r border-gray-300 text-purple-600">
+              <MdEmail />
+            </div>
+
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="w-full px-4 py-3 outline-none"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="mb-4">
           <label className="block mb-2 text-sm font-semibold text-gray-700">
             Password
           </label>
-           <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-    <div className="px-4 py-3 bg-gray-50 border-r border-gray-300 text-purple-600">
-        <FaLock  />
-        </div>
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full px-4 py-3 outline-none"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
- <div className="px-4 py-3  border-gray-300 text-purple-600 cursor-pointer">
-      <FaEye size={16} />
-    </div>
-</div>
+
+          <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+            <div className="px-4 py-3 bg-gray-50 border-r border-gray-300 text-purple-600">
+              <FaLock />
+            </div>
+
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter Password"
+              className="w-full px-4 py-3 outline-none"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <button
+              type="button"
+              className="px-4 py-3 text-purple-600"
+              onClick={() =>
+                setShowPassword(!showPassword)
+              }
+            >
+              {showPassword ? (
+                <FaEyeSlash />
+              ) : (
+                <FaEye />
+              )}
+            </button>
           </div>
+        </div>
+
         <button
           type="submit"
-          className="w-full text-white font-semibold bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg"
+          disabled={loading}
+          className="w-full py-3 rounded-lg text-white font-semibold bg-gradient-to-r from-purple-600 to-blue-500"
         >
-          Login
+          {loading ? "Logging in..." : "Login"}
         </button>
 
         <p className="text-center mt-4">
