@@ -2,7 +2,7 @@ import { res } from "../data/res";
 
 export default function Contacts() {
   return (
-    <section className="bg-slate-500 text-white rounded-3xl p-8"
+    <section id="contact" className="bg-slate-500 text-white rounded-3xl p-8"
     style={{ fontFamily: "Times New Roman, Times, serif" }}>
       <h2 className="text-2xl font-bold">
         Contact

@@ -2,7 +2,7 @@ import { res } from "../data/res";
 
 export default function Skills() {
   return (
-    <section className="bg-white rounded-3xl shadow p-8"
+    <section id="skills" className="bg-white rounded-3xl shadow p-8"
     style={{ fontFamily: "Times New Roman, Times, serif" }}>
       <h2 className="text-2xl font-bold mb-6">Skills</h2>
 

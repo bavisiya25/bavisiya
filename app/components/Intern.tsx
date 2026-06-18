@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Intern() {
   return (
-    <section
+    <section id="internship"
       className="bg-white rounded-3xl shadow p-8"
       style={{ fontFamily: "Times New Roman, Times, serif" }}
     >

@@ -3,7 +3,7 @@ import { res } from "../data/res";
  
 export default function Hero() { 
   return ( 
-    <section className="bg-white rounded-3xl shadow p-8 text-center"
+    <section id="hero" className="bg-white rounded-3xl shadow p-8 text-center"
     style={{ fontFamily: "Times New Roman, Times, serif" }}>
       <div className="flex justify-center"> 
         <Image
