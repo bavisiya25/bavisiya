@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-  <nav className="fixed top-0 left-0 w-full bg-blue-900 backdrop-blur-md shadow-md z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="bg-blue-900 p-4 text-white sticky top-0 z-50">
+      <div className="mx-auto flex max-w-6xl items-center justify-between">
         
         {/* Menu */}
         <ul className="flex gap-6">
