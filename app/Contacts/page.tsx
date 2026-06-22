@@ -2,11 +2,11 @@ import { res } from "../data/res";
 
 export default function Contacts() {
   return (
-    <section id="contact" className="bg-slate-500 text-white rounded-3xl p-8"
+   <section id="contact" className="min-h-screen bg-gradient-to-r from-blue-700 via-blue-600 to-blue-400 p-8"
     style={{ fontFamily: "Times New Roman, Times, serif" }}>
-      <h2 className="text-2xl font-bold">
-        Contact
-      </h2>
+        <div className="bg-white rounded-3xl shadow  p-8">
+      <h2 className="text-2xl font-bold mb-6">Contact</h2>
+
 
       <div className="mt-4 space-y-2">
         <p className=" text-red-200">
@@ -31,6 +31,7 @@ export default function Contacts() {
         </div>
 
         <p>📍 {res.location}</p>
+      </div>
       </div>
     </section>
   );

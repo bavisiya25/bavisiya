@@ -17,7 +17,7 @@ export default function Home() {
           </div>
         </Link>
 
-         <Link href="/Skills">
+         <Link href="/Education">
           <div className="bg-white text-black rounded-xl p-4 cursor-pointer hover:bg-slate-500">
             <h3 className="font-semibold ">
               Education

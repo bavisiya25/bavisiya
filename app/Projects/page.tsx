@@ -2,13 +2,11 @@ import Link from "next/link";
 
 export default function Projects() {
   return (
-    <section id="projects"
-      className="bg-white rounded-3xl shadow p-8"
-      style={{ fontFamily: "Times New Roman, Times, serif" }}
-    >
-      <h2 className="text-2xl font-bold mb-6">
-        Projects
-      </h2>
+   <section id="projects" className="min-h-screen bg-gradient-to-r from-blue-700 via-blue-600 to-blue-400 p-8"
+    style={{ fontFamily: "Times New Roman, Times, serif" }}>
+        <div className="bg-white rounded-3xl shadow  p-8">
+      <h2 className="text-2xl font-bold mb-6">Projects</h2>
+
 
       <div className="grid md:grid-cols-2 gap-4">
 
@@ -36,6 +34,7 @@ export default function Projects() {
           </div>
         </Link>
 
+      </div>
       </div>
     </section>
   );
