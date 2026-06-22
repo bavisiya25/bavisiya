@@ -10,7 +10,7 @@ export default function Home() {
          <Hero /> 
      <div className=" grid md:grid-cols-2 gap-4">  
      <Link href="/Skills">
-          <div className="bg-white text-black rounded-xl p-4 cursor-pointer hover:bg-slate-500">
+          <div className="bg-white text-black text-align-center rounded-xl p-4 cursor-pointer hover:bg-slate-500">
             <h3 className="font-semibold ">
               Skills
             </h3>
@@ -18,7 +18,7 @@ export default function Home() {
         </Link>
 
          <Link href="/Education">
-          <div className="bg-white text-black rounded-xl p-4 cursor-pointer hover:bg-slate-500">
+          <div className="bg-white text-black text-align-center rounded-xl p-4 cursor-pointer hover:bg-slate-500">
             <h3 className="font-semibold ">
               Education
             </h3>
@@ -26,7 +26,7 @@ export default function Home() {
         </Link>
 
          <Link href="/Intern">
-          <div className="bg-white text-black rounded-xl p-4 cursor-pointer hover:bg-slate-500">
+          <div className="bg-white text-black text-align-center rounded-xl p-4 cursor-pointer hover:bg-slate-500">
             <h3 className="font-semibold ">
             Internship
             </h3>
@@ -34,7 +34,7 @@ export default function Home() {
         </Link>
 
          <Link href="/Projects">
-          <div className="bg-white text-black rounded-xl p-4 cursor-pointer hover:bg-slate-500">
+          <div className="bg-white text-black text-align-center rounded-xl p-4 cursor-pointer hover:bg-slate-500">
             <h3 className="font-semibold ">
              Projects
             </h3>
@@ -42,7 +42,7 @@ export default function Home() {
         </Link>
 
         <Link href="/Contacts">
-          <div className="bg-white text-black rounded-xl p-4 cursor-pointer hover:bg-slate-500">
+          <div className="bg-white text-black text-align-center rounded-xl p-4 cursor-pointer hover:bg-slate-500">
             <h3 className="font-semibold ">
            Contact
             </h3>
