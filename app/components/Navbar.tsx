@@ -2,12 +2,11 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="bg-blue-900 p-4 text-white sticky top-0 z-50">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
-        
-        {/* Menu */}
-        <ul className="flex gap-6">
-          <li>
+<nav className="bg-blue-900 p-4 text-white sticky top-0 z-50 w-full">
+  <div className="mx-auto flex flex-col md:flex-row max-w-6xl items-center justify-between gap-4">
+    
+    {/* Menu */}
+    <ul className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base">          <li>
             <a href="#hero">Home</a>
           </li>
 
